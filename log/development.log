@@ -40,3 +40,61 @@ Processing by PostsController#show as HTML
   [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
   Rendered posts/show.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 27ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-09-24 15:20:02.186509"], ["updated_at", "2020-09-24 15:20:02.186509"]]
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.2ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Title Goes Here"], ["description", "Desc goes here..,"], ["created_at", "2020-09-24 15:21:10.437125"], ["updated_at", "2020-09-24 15:21:10.437125"]]
+  [1m[35m (12.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/posts/new" for 127.0.0.1 at 2020-09-24 11:24:32 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (20.9ms)
+Completed 200 OK in 1233ms (Views: 1176.2ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2020-09-24 11:24:51 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"39C1TRyh5rUeTsmjn27jyM9tHc0mHlJ6Bby81V1BKO6FiDx45hiAApbYLcmIQNJYneEplSd+gLWliU21W4ojzQ==", "title"=>"my post", "description"=>"my description", "commit"=>"Submit Post"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (4.8ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "my post"], ["description", "my description"], ["created_at", "2020-09-24 15:24:51.115555"], ["updated_at", "2020-09-24 15:24:51.115555"]]
+  [1m[35m (8.9ms)[0m  [1m[36mcommit transaction[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 468ms (ActiveRecord: 13.9ms)
+
+
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY "posts"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/posts/new" for 127.0.0.1 at 2020-09-24 11:34:07 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 702ms (Views: 657.9ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2020-09-24 11:34:41 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"CO1gvdQg6qyNtL6phbSeHbPmNrzhErK/Xp+R4nVC8E5StemILpmMGwUiWsOSmq+N4WoC5OByYHD+qmCCc4n7bQ==", "title"=>"my post", "description"=>"my description\r\n", "commit"=>"Submit Post"}
+  [1m[35m (1.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (5.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "my post"], ["description", "my description\r\n"], ["created_at", "2020-09-24 15:34:41.488355"], ["updated_at", "2020-09-24 15:34:41.488355"]]
+  [1m[35m (16.4ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 23.1ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"posts", :id=>nil} missing required keys: [:id]):
+  
+app/controllers/posts_controller.rb:19:in `create'
+  Rendering /usr/share/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /usr/share/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (7.4ms)
+  Rendering /usr/share/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /usr/share/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /usr/share/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /usr/share/rvm/gems/ruby-2.6.1/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (218.7ms)
