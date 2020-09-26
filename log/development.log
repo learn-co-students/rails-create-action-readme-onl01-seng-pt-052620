@@ -40,3 +40,111 @@ Processing by PostsController#show as HTML
   [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
   Rendered posts/show.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 27ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (12.4ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Title"], ["description", "Description"], ["created_at", "2020-09-25 21:44:03.307902"], ["updated_at", "2020-09-25 21:44:03.307902"]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for ::1 at 2020-09-26 11:19:02 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/railties-5.0.7.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/railties-5.0.7.2/lib/rails/templates/rails/welcome/index.html.erb (5.4ms)
+Completed 200 OK in 27ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2020-09-26 11:19:03 -0700
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 674ms (Views: 664.0ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/posts" for ::1 at 2020-09-26 11:19:11 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TXZ3O8om5++0UnWPt0TJDnuEt4bRmUxUapRGrSgXVC3g4IoQNqd2yKlosdSGKe68H8gT+eKJ9Te6J8yl2REGQA==", "title"=>"Flora", "description"=>"is the best", "commit"=>"Submit Post"}
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Flora"], ["description", "is the best"], ["created_at", "2020-09-26 18:19:12.003161"], ["updated_at", "2020-09-26 18:19:12.003161"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 34ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/posts/new" for ::1 at 2020-09-26 11:19:33 -0700
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 15ms (Views: 12.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2020-09-26 11:19:44 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LowcjxuAnaKo6T6EgBF3ed0MJjRS4zcwErfT7otJ85mDGuGk5wEMhbXT+t+xfFDLuUCCS2HzjlPCBFnmek+h9A==", "title"=>"Covid-19 Cases King County", "description"=>"getting better, I hope?", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Covid-19 Cases King County"], ["description", "getting better, I hope?"], ["created_at", "2020-09-26 18:19:44.416432"], ["updated_at", "2020-09-26 18:19:44.416432"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 28ms (ActiveRecord: 2.3ms)
+
+
+  [1m[36mPost Load (1.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+Started GET "/posts/new" for ::1 at 2020-09-26 11:21:54 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+SyntaxError (/Users/florapetersen/Development/code/rails-create-action-readme-onl01-seng-pt-052620/app/controllers/posts_controller.rb:19: syntax error, unexpected local variable or method, expecting `end'
+... redirect_to post_path(@post)ra
+...                             ^~
+):
+  
+app/controllers/posts_controller.rb:19: syntax error, unexpected local variable or method, expecting `end'
+  Rendering /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.9ms)
+  Rendering /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendering /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (9.8ms)
+  Rendered /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (48.7ms)
+Started GET "/posts/" for ::1 at 2020-09-26 11:22:08 -0700
+  
+SyntaxError (/Users/florapetersen/Development/code/rails-create-action-readme-onl01-seng-pt-052620/app/controllers/posts_controller.rb:19: syntax error, unexpected local variable or method, expecting `end'
+... redirect_to post_path(@post)ra
+...                             ^~
+):
+  
+app/controllers/posts_controller.rb:19: syntax error, unexpected local variable or method, expecting `end'
+  Rendering /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.3ms)
+  Rendering /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendering /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (21.4ms)
+Started GET "/posts/new" for ::1 at 2020-09-26 11:22:28 -0700
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 200ms (Views: 186.6ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/posts" for ::1 at 2020-09-26 11:22:35 -0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5zY7RkgztZccuQ6lL3fDWIPvuChmCQjROgO/n41TFQdKoMZttLIksAGDyv4eGuTq56McV1UZsbLqsDWXfFVHag==", "title"=>"It is...", "description"=>"a beautiful day!", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "It is..."], ["description", "a beautiful day!"], ["created_at", "2020-09-26 18:22:35.593908"], ["updated_at", "2020-09-26 18:22:35.593908"]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 3.1ms)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"posts", :id=>nil} missing required keys: [:id]):
+  
+app/controllers/posts_controller.rb:19:in `create'
+  Rendering /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.4ms)
+  Rendering /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendering /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.8ms)
+  Rendered /Users/florapetersen/.rvm/gems/ruby-2.7.0/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.8ms)
