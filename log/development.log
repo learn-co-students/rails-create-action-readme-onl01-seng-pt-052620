@@ -40,3 +40,58 @@ Processing by PostsController#show as HTML
   [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
   Rendered posts/show.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 27ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Title Goes Here"], ["description", "Desc goes here..."], ["created_at", "2020-10-05 23:43:34.545811"], ["updated_at", "2020-10-05 23:43:34.545811"]]
+  [1m[35m (13.1ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2020-10-05 19:50:20 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /home/jreyes/.rvm/gems/ruby-2.6.1/gems/railties-5.0.7.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/jreyes/.rvm/gems/ruby-2.6.1/gems/railties-5.0.7.2/lib/rails/templates/rails/welcome/index.html.erb (7.2ms)
+Completed 200 OK in 61ms (Views: 30.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2020-10-05 19:50:37 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 979ms (Views: 947.1ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2020-10-05 19:51:12 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MyM7Kz0JH6WATbWkj5FpFf9yHeToYZW+dDRX64iqPlkXALlmgIAsBKMAxnmZeAuePBuk561mxAKe2UYsK047qg==", "title"=>"This is a post", "description"=>"it's free", "commit"=>"Submit Post"}
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.9ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "This is a post"], ["description", "it's free"], ["created_at", "2020-10-05 23:51:12.363372"], ["updated_at", "2020-10-05 23:51:12.363372"]]
+  [1m[35m (17.4ms)[0m  [1m[36mcommit transaction[0m
+No template found for PostsController#create, rendering head :no_content
+Completed 204 No Content in 187ms (ActiveRecord: 21.9ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2020-10-05 19:52:41 -0400
+Processing by PostsController#new as HTML
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 118ms (Views: 78.5ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2020-10-05 19:52:59 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OgLdS4bLHacZJw0wV9ZhVSOxD2lbHfjhTTkn5mxl3/seIV8GO0IuBjpqfu1BPwPe4Ni2ah4aqV2n1DYhz4HaCA==", "title"=>"Fast application", "description"=>"testing this", "commit"=>"Submit Post"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "posts" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Fast application"], ["description", "testing this"], ["created_at", "2020-10-05 23:52:59.542404"], ["updated_at", "2020-10-05 23:52:59.542404"]]
+  [1m[35m (17.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/posts/4
+Completed 302 Found in 26ms (ActiveRecord: 20.4ms)
+
+
+Started GET "/posts/4" for 127.0.0.1 at 2020-10-05 19:52:59 -0400
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 60ms (Views: 43.1ms | ActiveRecord: 0.5ms)
+
+
